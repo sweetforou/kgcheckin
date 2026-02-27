@@ -31,3 +31,4 @@ jobs:
         run: npm run main
         env:
           USERINFO: ${{ secrets.USERINFO }}
+          OUWXPUSHERKEY: ${{ secrets.OUWXPUSHERKEY }}

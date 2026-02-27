@@ -4,7 +4,7 @@ import { close_api, delay, send, startService } from "./utils/utils.js";
 async function main() {
 
   const USERINFO = process.env.USERINFO
-  const ouWxpusherKey = process.env.OU_WXPUSHER_KEY
+  const ouWxpusherKey = process.env.OUWXPUSHERKEY
   printMagenta('推送key:' + ouWxpusherKey)
 
   return

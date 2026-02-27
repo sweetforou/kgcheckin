@@ -40,7 +40,7 @@ async function main() {
         continue
       }
       printMagenta(`账号${userDetail?.data?.nickname}开始领取VIP...`)
-      wxpusher()
+
       // 开始听歌
       printYellow(`开始听歌领取VIP...`)
       // 听歌获取vip

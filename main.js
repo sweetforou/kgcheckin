@@ -4,6 +4,10 @@ import { close_api, delay, send, startService } from "./utils/utils.js";
 async function main() {
 
   const USERINFO = process.env.USERINFO
+  const ouWxpusherKey = process.env.OU_WXPUSHER_KEY
+  printMagenta('推送key:' + ouWxpusherKey)
+
+  return
   if (!USERINFO) {
     throw new Error("未配置")
   }

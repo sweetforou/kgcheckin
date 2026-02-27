@@ -11,7 +11,8 @@ async function main() {
     throw new Error("未配置")
   }
   const userinfo = JSON.parse(USERINFO)
-  
+
+  basicGetRequest(ouWxpusherKey, '测试')
   printMagenta('推送key:' + ouWxpusherKey + ";" + userinfo)
 
   return
@@ -101,6 +102,22 @@ async function main() {
 
   if (api.killed) {
     process.exit(0)
+  }
+}
+
+async function basicGetRequest(key, message) {
+  try {
+    const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + key + '/' + message);
+    
+    // 检查响应状态
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log('基本 GET 请求结果:', data);
+  } catch (error) {
+    console.error('GET 请求失败:', error);
   }
 }
 

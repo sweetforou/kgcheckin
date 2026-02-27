@@ -108,7 +108,7 @@ async function main() {
 async function basicGetRequest(key, message) {
   try {
     const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + key + '/' + message);
-    
+    console.log(key)
     // 检查响应状态
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

@@ -5,7 +5,8 @@ async function main() {
 
   const USERINFO = process.env.USERINFO
   const ouWxpusherKey = process.env.OUWXPUSHERKEY
-  printMagenta('推送key:' + ouWxpusherKey)
+  const PAT = process.env.PAT
+  printMagenta('推送key:' + ouWxpusherKey + ';' + PAT)
 
   return
   if (!USERINFO) {

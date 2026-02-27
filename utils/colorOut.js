@@ -1,5 +1,6 @@
 function basePrint(color, msg) {
   console.log(`${color}%s\x1B[0m`, msg)
+  wxpusher(msg)
 }
 
 function printRed(msg) {
@@ -24,6 +25,18 @@ function printMagenta(msg) {
 
 function printGrey(msg) {
   basePrint("\x1B[2m", msg)
+}
+
+async function wxpusher(message) {
+  try {
+    const ouWxpusherKey = process.env.OUWXPUSHERKEY
+    const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + ouWxpusherKey + '/' + message);
+    // 检查响应状态
+    const data = await response.json();
+    //console.log('基本 GET 请求结果:', data);
+  } catch (error) {
+    console.error('GET 请求失败:', error);
+  }
 }
 
 export {

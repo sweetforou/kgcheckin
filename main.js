@@ -13,9 +13,9 @@ async function main() {
   }
   const userinfo = JSON.parse(USERINFO)
   const key = JSON.parse(ouWxpusherKey)
-  printMagenta('推送1key:' + ouWxpusherKey + ";" + USERINFO)
-
   
+
+
   return
   // 启动服务
   const api = startService()

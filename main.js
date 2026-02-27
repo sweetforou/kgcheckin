@@ -6,7 +6,6 @@ async function main() {
   const USERINFO = process.env.USERINFO
   const ouWxpusherKey = process.env.OUWXPUSHERKEY
   const PAT = process.env.PAT
-  printMagenta('推送key:' + ouWxpusherKey + ";" + USERINFO)
 
   if (!USERINFO) {
     throw new Error("未配置")
@@ -14,7 +13,7 @@ async function main() {
   const userinfo = JSON.parse(USERINFO)
   const key = JSON.parse(ouWxpusherKey)
   
-
+  printMagenta('推送key:' + ouWxpusherKey + ";" + userinfo)
 
   return
   // 启动服务

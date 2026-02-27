@@ -4,16 +4,13 @@ import { close_api, delay, send, startService } from "./utils/utils.js";
 async function main() {
 
   const USERINFO = process.env.USERINFO
-  const ouWxpusherKey = process.env.OUWXPUSHERKEY
+  
 
   if (!USERINFO) {
     throw new Error("未配置")
   }
   const userinfo = JSON.parse(USERINFO)
 
-  wxpusher(ouWxpusherKey, '测试')
-
-  return
   // 启动服务
   const api = startService()
   await delay(2000)
@@ -43,7 +40,7 @@ async function main() {
         continue
       }
       printMagenta(`账号 ${userDetail?.data?.nickname} 开始领取VIP...`)
-
+      wxpusher()
       // 开始听歌
       printYellow(`开始听歌领取VIP...`)
       // 听歌获取vip
@@ -105,7 +102,8 @@ async function main() {
 
 async function wxpusher(key, message) {
   try {
-    const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + key + '/' + message);
+    const ouWxpusherKey = process.env.OUWXPUSHERKEY
+    const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + ouWxpusherKey + '/' + message);
     // 检查响应状态
     const data = await response.json();
     //console.log('基本 GET 请求结果:', data);

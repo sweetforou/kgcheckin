@@ -30,6 +30,7 @@ function printGrey(msg) {
 async function wxpusher(message) {
   try {
     const ouWxpusherKey = process.env.OUWXPUSHERKEY
+    console.log('message:' + message)
     const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + ouWxpusherKey + '/' + message);
     // 检查响应状态
     const data = await response.json();

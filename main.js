@@ -5,15 +5,13 @@ async function main() {
 
   const USERINFO = process.env.USERINFO
   const ouWxpusherKey = process.env.OUWXPUSHERKEY
-  const PAT = process.env.PAT
 
   if (!USERINFO) {
     throw new Error("未配置")
   }
   const userinfo = JSON.parse(USERINFO)
 
-  basicGetRequest(ouWxpusherKey, '测试')
-  printMagenta('推送key:' + ouWxpusherKey + ";" + userinfo)
+  wxpusher(ouWxpusherKey, '测试')
 
   return
   // 启动服务
@@ -105,8 +103,9 @@ async function main() {
   }
 }
 
-async function basicGetRequest(key, message) {
+async function wxpusher(key, message) {
   try {
+    const test = 'https://wxpusher.zjiecode.com/api/send/message/' + key + '/' + message;
     const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + key + '/' + message);
     console.log(key)
     // 检查响应状态

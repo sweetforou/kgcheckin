@@ -105,16 +105,10 @@ async function main() {
 
 async function wxpusher(key, message) {
   try {
-    const test = 'https://wxpusher.zjiecode.com/api/send/message/' + key + '/' + message;
     const response = await fetch('https://wxpusher.zjiecode.com/api/send/message/' + key + '/' + message);
-    console.log(key)
     // 检查响应状态
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
     const data = await response.json();
-    console.log('基本 GET 请求结果:', data);
+    //console.log('基本 GET 请求结果:', data);
   } catch (error) {
     console.error('GET 请求失败:', error);
   }

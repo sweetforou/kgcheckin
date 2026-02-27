@@ -8,13 +8,15 @@ async function main() {
   const PAT = process.env.PAT
   printMagenta('推送key:' + ouWxpusherKey + ";" + USERINFO)
 
-  return
   if (!USERINFO) {
     throw new Error("未配置")
   }
   const userinfo = JSON.parse(USERINFO)
   const key = JSON.parse(ouWxpusherKey)
   printMagenta('推送1key:' + ouWxpusherKey + ";" + USERINFO)
+
+  
+  return
   // 启动服务
   const api = startService()
   await delay(2000)

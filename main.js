@@ -11,7 +11,6 @@ async function main() {
     throw new Error("未配置")
   }
   const userinfo = JSON.parse(USERINFO)
-  const key = JSON.parse(ouWxpusherKey)
   
   printMagenta('推送key:' + ouWxpusherKey + ";" + userinfo)
 
